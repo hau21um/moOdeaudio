@@ -1,0 +1,15 @@
+#Put me in /lib/systemd/system/
+[Unit]
+Description=Milos's Amplifier Switch
+After=basic.target
+
+[Service]
+Type=simple
+User=daemon
+WorkingDirectory=/tmp
+ExecStart=/usr/bin/amplifier-switch.sh
+# on-failure # or always, on-abort, etc
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
